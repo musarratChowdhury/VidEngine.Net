@@ -1,0 +1,6 @@
+@VidEngine.Api_HostAddress = http://localhost:5064
+
+GET {{VidEngine.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
