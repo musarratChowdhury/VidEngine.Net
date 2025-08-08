@@ -17,4 +17,5 @@ RUN dotnet publish "VidEngine.Api.csproj" -c Release -o /app/publish /p:UseAppHo
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY ["VidEngine.Api/certificates/devcert.pfx", "https/devcert.pfx"]
 ENTRYPOINT ["dotnet", "VidEngine.Api.dll"]

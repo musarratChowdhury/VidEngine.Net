@@ -1,8 +1,19 @@
+using System.Security.Cryptography.X509Certificates;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ConfigureHttpsDefaults(httpsOptions =>
+    {
+        httpsOptions.ServerCertificate = new X509Certificate2("/https/devcert.pfx", "mushcorp123");
+    });
+});
+
 
 var corsOrigins = builder.Configuration.GetSection("Cors:Origins").Get<string>();
 
