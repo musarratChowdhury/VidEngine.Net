@@ -1,16 +1,26 @@
-# Use postgres/example user/password credentials
+version: "3.9"
 
 services:
   db:
-    image: postgres
+    image: postgres:16
+    container_name: postgres_db
     restart: always
-    # set shared memory limit when using docker compose
     shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    #volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_DB: videngine_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - infrastructures_default
+    ports:
+      - "6999:5432"
+
+volumes:
+  pgdata:
+
+networks:
+  infrastructures_default:
+    external: true # Must exist already
+
