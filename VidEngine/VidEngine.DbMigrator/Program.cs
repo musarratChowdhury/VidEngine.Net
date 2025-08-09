@@ -16,8 +16,10 @@ class Program
             })
             .ConfigureServices((context, services) =>
             {
+                var connectionString = context.Configuration.GetConnectionString("Default");
                 services.AddDbContext<AppDbContext>(options =>
-                    options.UseNpgsql(context.Configuration.GetConnectionString("Default")));
+                    options.UseNpgsql(connectionString));
+                Console.WriteLine(connectionString);
             })
             .Build();
 
