@@ -21,4 +21,12 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\VidEngine.Domain\VidEngine.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VidEngine.Domain\VidEngine.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

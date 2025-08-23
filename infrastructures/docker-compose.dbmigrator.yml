@@ -1,0 +1,8 @@
+services:
+  videngine_dbmigrator:
+    build:
+      context: ../VidEngine
+      dockerfile: ../VidEngine/VidEngine.DbMigrator/Dockerfile
+    container_name: videngine_dbmigrator_container
+    environment:
+      - ConnectionStrings__Default=Host=db;Port=5432;Database=videngine_db;Username=admin;Password=admin
