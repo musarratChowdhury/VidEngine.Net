@@ -23,10 +23,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\VidEngine.Domain\VidEngine.Domain.csproj" />
+      <ProjectReference Include="..\VidEngine.EntityFrameworkCore\VidEngine.EntityFrameworkCore.csproj" />
+      <ProjectReference Include="..\VidEngine.Infrastructure\VidEngine.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\VidEngine.Domain\VidEngine.Domain.csproj" />
+      <ProjectReference Include="..\VidEngine.EntityFrameworkCore\VidEngine.EntityFrameworkCore.csproj" />
     </ItemGroup>
 
 </Project>
